@@ -32,5 +32,20 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func didRotateKartView(_ sender: UIRotationGestureRecognizer) {
+        let rotation = sender.rotation
+        print("rotation: \(rotation)")
+        
+        let kartView = sender.view!
+        kartView.transform = CGAffineTransform(rotationAngle: rotation)
+    }
+    
+    @IBAction func didTapKartView(_ sender: UITapGestureRecognizer) {
+        print("Double tap recognized")
+        let kartView = sender.view!
+        UIView.animate(withDuration: 0.6) {
+            kartView.center.x += 400
+        }
+    }
 }
 
